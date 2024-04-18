@@ -14,14 +14,14 @@ Category.hasMany(Product, {
   onDelete: 'CASCADE',
 });
 // Products belongToMany Tags (through ProductTag)
-Product.belongsToMany(ProductTag, {
-  through: 'ProductTag', // Name of the junction table
+Product.belongsToMany(Tag, {
+  through: ProductTag, // Name of the junction table model
   foreignKey: 'product_id', 
   onDelete: 'CASCADE',
 });
 // Tags belongToMany Products (through ProductTag)
-Tag.belongsToMany(ProductTag, {
-  through: 'ProductTag', 
+Tag.belongsToMany(Product, {
+  through: ProductTag, 
   foreignKey: 'tag_id', // Name of the foreign key column in the junction table
   onDelete: 'CASCADE',
 });
